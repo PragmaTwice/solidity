@@ -339,7 +339,9 @@ Contract-related
 Furthermore, all functions of the current contract are callable directly including the current function.
 
 .. warning::
-    From version 0.8.18 and up, the use of ``selfdestruct`` in both Solidity and Yul will trigger a
+    From ``EVM >= Cancun`` onwards, ``selfdestruct`` will **only** send all Ether in the account to the given recipient. In the case when ``selfdestruct`` is called in the same transaction the contract was created in, the behaviour of ``selfdestruct`` described above the warning pre-Cancun hardfork (i.e., ``EVM <= Shanghai``) is preserved and will destroy the current contract, deleting any data, including storage keys, code and the account itself.
+
+    Also, from version 0.8.18 and up, the use of ``selfdestruct`` in both Solidity and Yul will trigger a
     deprecation warning, since the ``SELFDESTRUCT`` opcode will eventually undergo breaking changes in behavior
     as stated in `EIP-6049 <https://eips.ethereum.org/EIPS/eip-6049>`_.
 
