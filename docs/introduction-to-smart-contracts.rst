@@ -565,9 +565,8 @@ contracts, the Ether is forever lost.
 .. warning::
     From ``EVM >= Cancun`` onwards, ``selfdestruct`` will **only** send all Ether in the account to the given recipient and not destroy the contract. However, when ``selfdestruct`` is called in the same transaction as the contract calling ``selfdestruct`` was created, the behaviour of ``selfdestruct`` pre-Cancun hardfork (i.e., ``EVM <= Shanghai``) is preserved and will destroy the current contract, deleting any data, including storage keys, code and the account itself. See `EIP-6780 <https://eips.ethereum.org/EIPS/eip-6780>`_ for more details.
 
-    Also, from version 0.8.18 and up, the use of ``selfdestruct`` in both Solidity and Yul will trigger a
-    deprecation warning, since the ``SELFDESTRUCT`` opcode will eventually undergo breaking changes in behavior
-    as stated in `EIP-6049 <https://eips.ethereum.org/EIPS/eip-6049>`_.
+    Also, note that the ``selfdestruct`` opcode remains deprecated since Solidity version 0.8.18, and the use of the opcode in both Solidity and Yul will trigger a deprecation warning, since the opcode is expected to undergo substantial behavioral changes, as stated in `EIP-6049 <https://eips.ethereum.org/EIPS/eip-6049>`_.
+    Moreover, future adjustments to the EVM may further restrict the functionality of this opcode.
 
 .. warning::
     Even if a contract is removed by ``selfdestruct``, it is still part of the
