@@ -66,6 +66,9 @@ function gp2_test
     force_hardhat_compiler_settings "$config_file" "$(first_word "$SELECTED_PRESETS")" "$config_var"
     force_hardhat_unlimited_contract_size "$config_file" "$config_var"
     yarn
+    # We require to install hardhat 2.20.0 due to support for evm version cancun
+    # See: https://github.com/NomicFoundation/hardhat/issues/4176
+    yarn add hardhat@2.20.0
 
     # Remove the config section that requires an Etherscan key. We don't need it just to run tests.
     sed -i '/^  etherscan: {$/,/^  },$/d' hardhat.config.ts
