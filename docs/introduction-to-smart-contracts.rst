@@ -581,7 +581,13 @@ contracts, the Ether is forever lost.
     So using ``selfdestruct`` is not the same as deleting data from a hard disk.
 
 .. note::
-    Even if a contract's code does not contain a call to ``selfdestruct``,
+    The new behaviour of ``self-destruct`` is the result of a network-wide change that affects all 
+    contracts present on the Ethereum mainnet and testnets.
+    It is important to note that this change is dependent on the EVM version of the
+    chain on which the contract is deployed.
+    However, the ``--evm-version`` setting used when compiling the contract has no bearing on it.
+
+    Additionallu, even if a contract's code does not contain a call to ``selfdestruct``,
     it can still perform that operation using ``delegatecall`` or ``callcode``.
 
 If you want to deactivate your contracts, you should instead **disable** them
