@@ -352,7 +352,7 @@ Furthermore, all functions of the current contract are callable directly includi
     Future changes to the EVM might further reduce the functionality of the opcode.
 
 .. note::
-    The new behaviour of ``self-destruct`` is the result of a network-wide change that affects all 
+    The new behaviour of ``self-destruct`` is the result of a network-wide change that affects all
     contracts present on the Ethereum mainnet and testnets.
     It is important to note that this change is dependent on the EVM version of the
     chain on which the contract is deployed.
